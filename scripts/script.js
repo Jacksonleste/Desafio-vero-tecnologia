@@ -4,7 +4,7 @@ let selectId = document.getElementById("selectId")
 
 
 function getData(){
-    selectId.innerHTML = '<option value="" disabled selected hidden>--Nenhum valor selecinado--</option>'
+    selectId.innerHTML = '<option value="" disabled selected hidden>--Nenhum valor selecionado--</option>'
 
     fetch(`${URL}index.php`, {
         method: 'GET'
@@ -36,7 +36,6 @@ function getData(){
 }
 
 function editData(id) {
-  // alert(selectId.value+1)
   fetch(
     `${URL}/update.php?id=${encodeURIComponent(id)}&estado=default`,
     {

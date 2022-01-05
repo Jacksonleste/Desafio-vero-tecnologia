@@ -55,10 +55,12 @@ button{
     color: #ffffff;
     padding: 1rem 2rem;
     border-radius: 1rem;
+    cursor: pointer;
+
 }
 
 button:hover{
-    filter: drop-shadow(1rem, 1rem, 1rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
 
@@ -104,11 +106,3 @@ th{
     color: white;
 }
 
-
-button{
-    cursor: pointer;
-}
-
-select{
-    margin: 1rem;
-}
