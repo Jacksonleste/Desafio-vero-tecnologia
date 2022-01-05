@@ -50,5 +50,7 @@ function editData(id) {
 
 setInterval(getData, 60000)
 editButton.addEventListener('click', () =>{
-  editData(selectId.value)
+  if(selectId.value != 0){
+    editData(selectId.value)
+  }
 })
