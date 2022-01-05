@@ -36,10 +36,20 @@ function getData(){
     })
 }
 
+function editData(id) {
+  // alert(selectId.value+1)
+  fetch(
+    `${URL}/update.php?id=${encodeURIComponent(id)}&estado=default`,
+    {
+      method: "GET",
+    }
+  )
+    .then((res) => res.json())
+    .then((res) => alert(`estado: ${res.status}`))
+}
+
 
 setInterval(getData, 60000)
-
-
-
-
-
+editButton.addEventListener('click', () =>{
+  editData(selectId.value)
+})
