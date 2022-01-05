@@ -7,14 +7,29 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Dashboard</title>
 </head>
-<body onload="buscar()">
+<body onload="getData()">
 
-<div>
-
-
-  <table id="tabela-dados">
+  <div id="change-status" >
+    <label for="ids">Selecione um id para mudar seu estado</label>
+    <select name="ids" id="selectId">
+      <!-- <option value="1">um</option> -->
+    </select>
+    
+    <button id="editButton">confirmar</button>
+    
+  </div>
+  <div>
+  <table id="data-table">
+    <thead>
+      <th>ID</th> 
+      <th>Origem</th>
+      <th>Destino</th>
+      <th>Estado</th>
+    </thead>
   </table>
 </div>
+<hr>
+<ul id="list"></ul>
 
 </body>
 <script src="scripts/script.js"></script>

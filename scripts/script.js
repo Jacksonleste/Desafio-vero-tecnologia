@@ -1,33 +1,22 @@
+const URL = "http://191.252.93.122/desafio-front-end/api/"
+const editButton = document.getElementById("editButton")
+let selectId = document.getElementById("selectId")
 
 
-setInterval(buscar, 60000)
+function getData(){
+    selectId.innerHTML = '<option value="" disabled selected hidden>--Nenhum valor selecinado--</option>'
 
-
-function buscar(){
-    fetch('http://191.252.93.122/desafio-front-end/api/index.php', {
+    fetch(`${URL}index.php`, {
         method: 'GET'
     })
-    .then(Response => Response.json())
-    .then(function(json){
-        console.log(json)
-        let tabela = document.querySelector("#tabela-dados"), 
-        headTable = document.createElement('tr'), 
+    .then(response => response.json())
+    .then((json) => {
+        let table = document.querySelector("#data-table"), 
         bodyTable = document.createElement('tbody')
-        tabela.innerHTML = ""
-        headTable.innerHTML = "<th>ID</th> <th>Origem</th> <th>Destino</th> <th>Estado</th>"
-        tabela.appendChild(headTable)
-        tabela.appendChild(bodyTable)
-
-        console.log(json.length)
-        
-
-        // setInterval
-
-
-        // let headerTable = tabela.appendChild('tr')
+        table.appendChild(bodyTable)        
 
         bodyTable.innerHTML = ""
-        json.map(function(results){
+        json.forEach(function(results){
             bodyTable.innerHTML += `
             <tr>
                 <td>${results.id}</td>
@@ -36,7 +25,21 @@ function buscar(){
                 <td>${results.estado}</td>
             </tr>
             `
+          selectId.innerHTML += `<option value="${results.id}">${results.id}</option>`
+
         })
 
     })
+
+    .catch(erro =>{
+        alert(erro)
+    })
 }
+
+
+setInterval(getData, 60000)
+
+
+
+
+
