@@ -11,9 +11,8 @@ function getData(){
     })
     .then(response => response.json())
     .then((json) => {
-        let table = document.querySelector("#data-table"), 
-        bodyTable = document.createElement('tbody')
-        table.appendChild(bodyTable)        
+        // let table = document.querySelector("#data-table"), 
+        bodyTable = document.getElementById('tBody')
 
         bodyTable.innerHTML = ""
         json.forEach(function(results){
